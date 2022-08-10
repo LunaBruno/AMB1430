@@ -1,12 +1,18 @@
 """ AMB1430 - Programação para Engenharia Elétrica """
 
+# from stanfordkarel.world_editor import run_world_editor
+
+# if __name__ == "__main__":
+#     run_world_editor()
+
+
 # Importar módulos/pacotes/funções
 from stanfordkarel import *
 
 
 if __name__ == "__main__":
   """ Chamada do programa Karel """
-  run_karel_program()
+  run_karel_program("primeiro_mundo")
 
 
 def main():
@@ -33,11 +39,11 @@ def varrer_diagonal_secundaria():
     if front_is_clear():
       put_beeper()
       move()
-      turn_left()
+      turn_right()
     if front_is_clear():
       put_beeper()
       move()
-      turn_right()
+      turn_left()
 
 
 def varrer_diagonal():
@@ -46,13 +52,12 @@ def varrer_diagonal():
     varrer_diagonal_primaria()
     # Girar no sentido contrario
     turn_left()
-    turn_left()  
+    turn_left()
     varrer_diagonal_secundaria()
     # Girar no sentido contrario
     turn_left()
     turn_left()
-
-
+  
 def turn_right():
   """ Girar para a direita """
   turn_left()
@@ -112,30 +117,30 @@ def varrer_vertical():
  
 
 
-# def atualizar_posicao(x_pos, y_pos):
-#   """ Atualizar posição """
-#   if facing_east():
-#     x_pos = x_pos + 1
-#   elif facing_west():
-#     x_pos = x_pos - 1
-#   elif facing_north():
-#     y_pos = y_pos + 1
-#   else:
-#     y_pos = y_pos - 1
+# # def atualizar_posicao(x_pos, y_pos):
+# #   """ Atualizar posição """
+# #   if facing_east():
+# #     x_pos = x_pos + 1
+# #   elif facing_west():
+# #     x_pos = x_pos - 1
+# #   elif facing_north():
+# #     y_pos = y_pos + 1
+# #   else:
+# #     y_pos = y_pos - 1
 
-#   return (x_pos, y_pos)
+# #   return (x_pos, y_pos)
 
-# # Variavel Global
-# # Posição do robô
-# x_pos = 0
-# y_pos = 0
+# # # Variavel Global
+# # # Posição do robô
+# # x_pos = 0
+# # y_pos = 0
 
-# # Atualizar mapa de ocupação
-# mapa = [[0,0,0,0,0,0,0,0],
-#         [0,0,0,0,0,0,0,0],
-#         [0,0,0,0,0,0,0,0],
-#         [0,0,0,0,0,0,0,0],
-#         [0,0,0,0,0,0,0,0],
-#         [0,0,0,0,0,0,0,0],
-#         [0,0,0,0,0,0,0,0],
-#         [0,0,0,0,0,0,0,0]]
+# # # Atualizar mapa de ocupação
+# # mapa = [[0,0,0,0,0,0,0,0],
+# #         [0,0,0,0,0,0,0,0],
+# #         [0,0,0,0,0,0,0,0],
+# #         [0,0,0,0,0,0,0,0],
+# #         [0,0,0,0,0,0,0,0],
+# #         [0,0,0,0,0,0,0,0],
+# #         [0,0,0,0,0,0,0,0],
+# #         [0,0,0,0,0,0,0,0]]
