@@ -9,6 +9,9 @@
 # Importar módulos/pacotes/funções
 from stanfordkarel import *
 
+x_pos = 1
+y_pos = 1
+
 
 if __name__ == "__main__":
   """ Chamada do programa Karel """
@@ -20,16 +23,34 @@ def main():
   varrer_diagonal()
 
 
+def mover():
+  """ Linha de comentário sobre a lógica de varredura """
+  global x_pos
+  global y_pos
+  move()
+
+  """ Atualizar posição """
+  if facing_east():
+    x_pos = x_pos + 1
+  elif facing_west():
+    x_pos = x_pos - 1
+  elif facing_north():
+    y_pos = y_pos + 1
+  else:
+    y_pos = y_pos - 1
+  print("Posicao x: ", x_pos, " - ", "Posicao y:", y_pos)
+
+
 def varrer_diagonal_primaria():
   """ Varrer a diagonal primária """
   while front_is_clear():
     if front_is_clear():
       put_beeper()
-      move()
+      mover()
       turn_left()
     if front_is_clear():
       put_beeper()
-      move()
+      mover()
       turn_right()
 
 
@@ -38,11 +59,11 @@ def varrer_diagonal_secundaria():
   while front_is_clear():
     if front_is_clear():
       put_beeper()
-      move()
+      mover()
       turn_right()
     if front_is_clear():
       put_beeper()
-      move()
+      mover()
       turn_left()
 
 
@@ -65,16 +86,16 @@ def turn_right():
   turn_left()
 
 
-def mover_para_fronteira():
-  """ Mover enquanto não atingir a fronteira """
+def moverr_para_fronteira():
+  """ moverr enquanto não atingir a fronteira """
   while front_is_clear():
-    move()  
+    mover()  
 
 
 def varrer_fronteira():
   """ Varrer as fronteiras do mundo com 4 lados """
   for contador in range(4):
-    mover_fronteira()
+    moverr_fronteira()
     turn_left()
 
 
@@ -82,16 +103,16 @@ def varrer_horizontal():
   """ Varrer o mundo no padrão zig-zag horizontal """
   while front_is_clear():
     # Zig
-    mover_fronteira()
+    moverr_fronteira()
     turn_left()
     if front_is_clear():
-      move()
+      mover()
       turn_left()
     # Zag
-    mover_fronteira()
+    moverr_fronteira()
     turn_right()
     if front_is_clear():
-      move()
+      mover()
       turn_right()
 
 
@@ -101,16 +122,16 @@ def varrer_vertical():
   turn_right()
   while front_is_clear():
     # Zig
-    mover_fronteira()
+    moverr_fronteira()
     turn_left()
     if front_is_clear():
-      move()
+      mover()
       turn_left()
     # Zag      
-    mover_fronteira()
+    moverr_fronteira()
     turn_right()
     if front_is_clear():
-      move()
+      mover()
       turn_right()      
 
 
