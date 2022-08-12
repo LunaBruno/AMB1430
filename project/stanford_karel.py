@@ -5,8 +5,8 @@ from stanfordkarel import *
 
 # Variavel Global
 # Posição do robô
-x_pos = 1
-y_pos = 1
+x_pos = 0
+y_pos = 0
 
 # Atualizar mapa de ocupação
 mapa_de_ocupacao = [[0,0,0,0,0,0,0,0],
@@ -50,7 +50,13 @@ def atualizar_posicao():
     y_pos = y_pos - 1
   # Imprimir posicao atual
   print("Posicao x: ", x_pos, " - ", "Posicao y:", y_pos)
-
+  
+  # Atualizar e imprimir mapa de ocupacao
+  mapa_de_ocupacao[y_pos][x_pos] = "x"
+  for linha in reversed(mapa_de_ocupacao):
+    for coluna in linha:
+        print (coluna,end=" ")
+    print ()
 
 def varrer_diagonal_primaria():
   """ Varrer a diagonal primária """
