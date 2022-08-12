@@ -1,21 +1,27 @@
 """ AMB1430 - Programação para Engenharia Elétrica """
 
-# from stanfordkarel.world_editor import run_world_editor
-
-# if __name__ == "__main__":
-#     run_world_editor()
-
-
 # Importar módulos/pacotes/funções
 from stanfordkarel import *
 
+# Variavel Global
+# Posição do robô
 x_pos = 1
 y_pos = 1
+
+# Atualizar mapa de ocupação
+mapa_de_ocupacao = [[0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0]]
 
 
 if __name__ == "__main__":
   """ Chamada do programa Karel """
-  run_karel_program("primeiro_mundo")
+  #run_karel_program("primeiro_mundo")
 
 
 def main():
@@ -25,11 +31,16 @@ def main():
 
 def mover():
   """ Linha de comentário sobre a lógica de varredura """
+  move()
+  atualizar_posicao()
+  
+
+def atualizar_posicao():
+  """ Atualizar posição do robô dentro do mundo """
   global x_pos
   global y_pos
-  move()
-
-  """ Atualizar posição """
+  global mapa_de_ocupacao
+  # Atualizar posição
   if facing_east():
     x_pos = x_pos + 1
   elif facing_west():
@@ -38,6 +49,9 @@ def mover():
     y_pos = y_pos + 1
   else:
     y_pos = y_pos - 1
+  # Atualizar mapa de ocupação
+  mapa_de_ocupacao[x_pos-1][y_pos-1] = "x"
+  # Imprimir posicao atual
   print("Posicao x: ", x_pos, " - ", "Posicao y:", y_pos)
 
 
@@ -79,6 +93,7 @@ def varrer_diagonal():
     turn_left()
     turn_left()
   
+
 def turn_right():
   """ Girar para a direita """
   turn_left()
@@ -86,8 +101,8 @@ def turn_right():
   turn_left()
 
 
-def moverr_para_fronteira():
-  """ moverr enquanto não atingir a fronteira """
+def mover_para_fronteira():
+  """ mover enquanto não atingir a fronteira """
   while front_is_clear():
     mover()  
 
@@ -95,7 +110,7 @@ def moverr_para_fronteira():
 def varrer_fronteira():
   """ Varrer as fronteiras do mundo com 4 lados """
   for contador in range(4):
-    moverr_fronteira()
+    mover_fronteira()
     turn_left()
 
 
@@ -103,13 +118,13 @@ def varrer_horizontal():
   """ Varrer o mundo no padrão zig-zag horizontal """
   while front_is_clear():
     # Zig
-    moverr_fronteira()
+    mover_fronteira()
     turn_left()
     if front_is_clear():
       mover()
       turn_left()
     # Zag
-    moverr_fronteira()
+    mover_fronteira()
     turn_right()
     if front_is_clear():
       mover()
@@ -122,46 +137,14 @@ def varrer_vertical():
   turn_right()
   while front_is_clear():
     # Zig
-    moverr_fronteira()
+    mover_fronteira()
     turn_left()
     if front_is_clear():
       mover()
       turn_left()
     # Zag      
-    moverr_fronteira()
+    mover_fronteira()
     turn_right()
     if front_is_clear():
       mover()
       turn_right()      
-
-
- 
-
-
-# # def atualizar_posicao(x_pos, y_pos):
-# #   """ Atualizar posição """
-# #   if facing_east():
-# #     x_pos = x_pos + 1
-# #   elif facing_west():
-# #     x_pos = x_pos - 1
-# #   elif facing_north():
-# #     y_pos = y_pos + 1
-# #   else:
-# #     y_pos = y_pos - 1
-
-# #   return (x_pos, y_pos)
-
-# # # Variavel Global
-# # # Posição do robô
-# # x_pos = 0
-# # y_pos = 0
-
-# # # Atualizar mapa de ocupação
-# # mapa = [[0,0,0,0,0,0,0,0],
-# #         [0,0,0,0,0,0,0,0],
-# #         [0,0,0,0,0,0,0,0],
-# #         [0,0,0,0,0,0,0,0],
-# #         [0,0,0,0,0,0,0,0],
-# #         [0,0,0,0,0,0,0,0],
-# #         [0,0,0,0,0,0,0,0],
-# #         [0,0,0,0,0,0,0,0]]
