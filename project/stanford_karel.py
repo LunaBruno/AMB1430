@@ -21,7 +21,7 @@ mapa_de_ocupacao = [[0,0,0,0,0,0,0,0],
 
 if __name__ == "__main__":
   """ Chamada do programa Karel """
-  #run_karel_program("primeiro_mundo")
+  run_karel_program("primeiro_mundo")
 
 
 def main():
@@ -30,16 +30,15 @@ def main():
 
 
 def mover():
-  """ Linha de comentário sobre a lógica de varredura """
+  """ Mover e atualizar posicao """
   move()
   atualizar_posicao()
   
 
 def atualizar_posicao():
-  """ Atualizar posição do robô dentro do mundo """
+  """ Atualizar posição """
   global x_pos
   global y_pos
-  global mapa_de_ocupacao
   # Atualizar posição
   if facing_east():
     x_pos = x_pos + 1
@@ -49,8 +48,6 @@ def atualizar_posicao():
     y_pos = y_pos + 1
   else:
     y_pos = y_pos - 1
-  # Atualizar mapa de ocupação
-  mapa_de_ocupacao[x_pos-1][y_pos-1] = "x"
   # Imprimir posicao atual
   print("Posicao x: ", x_pos, " - ", "Posicao y:", y_pos)
 
