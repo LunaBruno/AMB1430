@@ -1,4 +1,12 @@
-""" AMB1430 - Programação para Engenharia Elétrica """
+"""
+    Universidade Federal Rural do Semi-Árido
+    Departamento de Engenharia e Tecnologia
+
+    AMB1430 - Programação para Engenharia Elétrica
+    Periodo 2022.1 - bruno.luna@ufersa.edu.br
+    
+    Stanford Karel Robot
+""""
 
 # Importar módulos/pacotes/funções
 from stanfordkarel import *
