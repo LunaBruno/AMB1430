@@ -7,9 +7,9 @@
 
     Atividade Sincrona I - Potência em Sistemas de Corrente Alternada
 
-    Leia o código e busque pelo termo <TODO> para executar as atividades
-
-    Realize a leitura das seguintes referências
+    1 - Leia a função <main>
+    2 - Busque pelo termo <TODO> e execute as atividades descritas
+    3 - Realize a leitura das seguintes referências para auxliar na execução das atividades
 
         Usando Python como uma calculadora
         https://docs.python.org/pt-br/3/tutorial/introduction.html#using-python-as-a-calculator
